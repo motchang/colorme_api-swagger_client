@@ -1,0 +1,135 @@
+# SwaggerClient::CustomerApi
+
+All URIs are relative to *https://api.shop-pro.jp*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**get_customer**](CustomerApi.md#get_customer) | **GET** /v1/customers/{customerId}.json | 顧客データの取得
+[**get_customers**](CustomerApi.md#get_customers) | **GET** /v1/customers.json | 顧客データのリストを取得
+
+
+# **get_customer**
+> InlineResponse2005 get_customer(customer_id)
+
+顧客データの取得
+
+
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = SwaggerClient::CustomerApi.new
+
+customer_id = 56 # Integer | 
+
+
+begin
+  #顧客データの取得
+  result = api_instance.get_customer(customer_id)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling CustomerApi->get_customer: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_id** | **Integer**|  | 
+
+### Return type
+
+[**InlineResponse2005**](InlineResponse2005.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **get_customers**
+> InlineResponse2004 get_customers(opts)
+
+顧客データのリストを取得
+
+
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure OAuth2 access token for authorization: OAuth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = SwaggerClient::CustomerApi.new
+
+opts = { 
+  ids: "ids_example", # String | 顧客IDで検索。カンマ区切りで複数指定可能
+  name: "name_example", # String | 顧客名で部分一致検索
+  furigana: "furigana_example", # String | 顧客フリガナがで部分一致検索
+  mail: "mail_example", # String | 顧客メールアドレスで部分一致検索
+  postal: "postal_example", # String | 顧客の郵便番号で部分一致検索
+  tel: "tel_example", # String | 顧客の電話番号で部分一致検索
+  mobile: true, # BOOLEAN | `true`なら会員登録済みの顧客から検索
+  make_date_min: "make_date_min_example", # String | 指定日時以降に登録された顧客から検索
+  make_date_max: "make_date_max_example", # String | 指定日時以前に登録された顧客から検索
+  update_date_min: "update_date_min_example", # String | 指定日時以降に更新された顧客から検索
+  update_date_max: "update_date_max_example" # String | 指定日時以降に更新された顧客から検索
+}
+
+begin
+  #顧客データのリストを取得
+  result = api_instance.get_customers(opts)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling CustomerApi->get_customers: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ids** | **String**| 顧客IDで検索。カンマ区切りで複数指定可能 | [optional] 
+ **name** | **String**| 顧客名で部分一致検索 | [optional] 
+ **furigana** | **String**| 顧客フリガナがで部分一致検索 | [optional] 
+ **mail** | **String**| 顧客メールアドレスで部分一致検索 | [optional] 
+ **postal** | **String**| 顧客の郵便番号で部分一致検索 | [optional] 
+ **tel** | **String**| 顧客の電話番号で部分一致検索 | [optional] 
+ **mobile** | **BOOLEAN**| &#x60;true&#x60;なら会員登録済みの顧客から検索 | [optional] 
+ **make_date_min** | **String**| 指定日時以降に登録された顧客から検索 | [optional] 
+ **make_date_max** | **String**| 指定日時以前に登録された顧客から検索 | [optional] 
+ **update_date_min** | **String**| 指定日時以降に更新された顧客から検索 | [optional] 
+ **update_date_max** | **String**| 指定日時以降に更新された顧客から検索 | [optional] 
+
+### Return type
+
+[**InlineResponse2004**](InlineResponse2004.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
